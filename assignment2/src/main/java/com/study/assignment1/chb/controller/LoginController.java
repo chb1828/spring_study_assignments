@@ -5,14 +5,12 @@ import com.study.assignment1.chb.repository.UserRepository;
 import com.study.assignment1.chb.security.JwtTokenProvider;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.crypto.password.PasswordEncoder;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.Map;
 
 @RequiredArgsConstructor
 @RestController
-@Controller
 @CrossOrigin(origins = "http://localhost:3000")
 public class LoginController {
 

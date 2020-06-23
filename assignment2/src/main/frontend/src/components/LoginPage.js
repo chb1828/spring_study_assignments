@@ -4,6 +4,7 @@ import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faEdit, faList, faTrash} from "@fortawesome/free-solid-svg-icons";
 import AuthService from "../services/auth-service";
 import axios from "axios";
+import {Link} from "react-router-dom";
 
     export default class LoginPage extends Component{
 
@@ -26,7 +27,6 @@ import axios from "axios";
         };
     loginUser = event => {
         event.preventDefault();
-
         AuthService.login(this.state.username, this.state.password).then(
             () => {
                 this.props.history.push("/");
@@ -64,7 +64,8 @@ import axios from "axios";
                             {this.state.check === true &&
                                 <p>아이디 또는 비밀번호가 잘못됬습니다.</p>
                             }
-                            <Button variant="primary" type="submit">
+                            <Button variant="warning" type="button"><Link to="registration">회원가입</Link></Button>
+                            <Button variant="primary" type="submit" style={{"float":"right"}}>
                                 Submit
                             </Button>
                         </Form>

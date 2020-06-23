@@ -5,18 +5,21 @@ import {faEdit, faList, faTrash} from '@fortawesome/free-solid-svg-icons'
 import axios from 'axios'
 import MyToast from "./MyToast";
 import {Link} from "react-router-dom";
+import AuthService from "../services/auth-service";
 
 export default class BookList extends Component{
 
     constructor(props) {
         super(props);
         this.state = {
-            books: []
+            books: [],
+            token: ""
         };
     }
 
     componentDidMount() {
         this.findAllBooks();
+        this.setState({token:AuthService.getCurrentUser()})
     }
 
     findAllBooks() {
@@ -28,6 +31,10 @@ export default class BookList extends Component{
     }
 
     deleteBook = (bookId) => {
+        if(!this.state.token) {
+            alert("로그인 필요");
+            return;
+        }
         axios.delete("http://localhost:8080/books/"+bookId)
             .then(response => {
                 if(response.data !=null) {

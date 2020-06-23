@@ -10,6 +10,7 @@ import {BrowserRouter as Router,Route} from "react-router-dom";
 import UserList from "./components/UserList";
 import LoginPage from "./components/LoginPage";
 import AuthService from "./services/auth-service";
+import Registration from "./components/Registration";
 
 
 
@@ -31,7 +32,6 @@ class App extends Component {
             });
         }
     }
-
     render() {
         const marginTop = {
             marginTop: "20px"
@@ -49,6 +49,7 @@ class App extends Component {
                             <Route path="/list" exact component={BookList}/>
                             <Route path="/users" exact component={UserList}/>
                             <Route path="/loginPage" exact component={LoginPage}/>
+                            <Route path="/registration" exact component={Registration}/>
                         </Switch>
                     </Row>
                 </Container>

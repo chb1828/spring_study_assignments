@@ -25,12 +25,19 @@ class AuthService {
         localStorage.removeItem("token");
     }
 
-    register(username, email, password) {
-        return axios.post(API_URL + "signup", {
-            username,
-            email,
-            password
-        });
+    register(username, password,age,description) {
+        const user = {
+            username: username,
+            password: password,
+            age: age,
+            description: description
+        };
+        return axios.post(API_URL + "signUp",user)
+            .then(response => {
+                if(response.data) {
+                    alert("성공");
+                }
+            });
     }
 
     getCurrentUser() {

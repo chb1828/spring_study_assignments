@@ -14,11 +14,7 @@ export default class Book extends Component {
         this.state.show = false;
         this.bookChange = this.bookChange.bind(this);
         this.submitBook = this.submitBook.bind(this);
-        const token = AuthService.getCurrentUser();
-        if(!token) {
-            alert("로그인 하십시오");
-            this.props.history.goBack();
-        }
+
     }
 
     initialState = {
@@ -32,11 +28,15 @@ export default class Book extends Component {
     };
 
     componentDidMount() {
+        const token = AuthService.getCurrentUser();
+        if(!token) {
+            alert("로그인이 필요합니다");
+            this.props.history.push("/loginPage");
+        }
         const bookId = +this.props.match.params.id;
         if(bookId) {
             this.findBookById(bookId);
         }
-
     }
 
     findBookById = (bookId) => {
