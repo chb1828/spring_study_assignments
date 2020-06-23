@@ -6,16 +6,14 @@ import com.study.assignment1.chb.security.JwtTokenProvider;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.Map;
 
 @RequiredArgsConstructor
 @RestController
 @Controller
+@CrossOrigin(origins = "http://localhost:3000")
 public class LoginController {
 
     private final PasswordEncoder passwordEncoder;

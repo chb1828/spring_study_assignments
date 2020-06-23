@@ -12,6 +12,7 @@ import java.util.Optional;
 @RestController
 @RequestMapping("/books")
 @RequiredArgsConstructor
+@CrossOrigin(origins = "http://localhost:3000")
 public class BookController {
 
     private final BookRepository bookRepository;

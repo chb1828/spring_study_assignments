@@ -8,6 +8,9 @@ class NavigationBar extends Component{
 
     constructor(props) {
         super(props);
+        this.state = {
+            currentUser: AuthService.getCurrentUser()
+        };
         this.logOut = this.logOut.bind(this);
     }
 
@@ -27,12 +30,11 @@ class NavigationBar extends Component{
                         <Link to={"add"} className="navbar-brand">Add Book</Link>
                         <Link to={"list"} className="navbar-brand">Book List</Link>
                         <Link to={"users"} className="navbar-brand">User List</Link>
-                        {this.props.currentUser !== undefined ? (
+                        {this.state.currentUser ? (
                             <a href="/" className="navbar-brand" onClick={this.logOut}>Logout</a>
                         ) : (
                             <Link to={"loginPage"} className="navbar-brand">Login</Link>
                         )}
-
                     </Nav>
                 </Navbar.Collapse>
             </Navbar>

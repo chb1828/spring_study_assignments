@@ -38,7 +38,7 @@ class App extends Component {
         }
         return (
             <Router>
-                <NavigationBar currentUser={this.state.currentUser}/>
+                <NavigationBar/>
                 <Container>
                     <Row>
                         <Col lg={12} style={marginTop}></Col>

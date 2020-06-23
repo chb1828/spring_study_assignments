@@ -4,6 +4,7 @@ import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faEdit, faList, faPlusSquare, faSave, faUndo} from '@fortawesome/free-solid-svg-icons'
 import axios from 'axios';
 import MyToast from "./MyToast";
+import AuthService from "../services/auth-service";
 
 export default class Book extends Component {
 
@@ -13,6 +14,11 @@ export default class Book extends Component {
         this.state.show = false;
         this.bookChange = this.bookChange.bind(this);
         this.submitBook = this.submitBook.bind(this);
+        const token = AuthService.getCurrentUser();
+        if(!token) {
+            alert("로그인 하십시오");
+            this.props.history.goBack();
+        }
     }
 
     initialState = {
