@@ -125,7 +125,8 @@ export default class Book extends Component {
             coverPhotoURL: this.state.coverPhotoURL,
             isbnNumber: this.state.isbnNumber,
             price: this.state.price,
-            language: this.state.language
+            language: this.state.language,
+            genre: this.state.genre
         };
 
         axios.post("http://localhost:8080/books", book)
