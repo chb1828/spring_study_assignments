@@ -14,7 +14,6 @@ export default class Book extends Component {
         this.state.show = false;
         this.bookChange = this.bookChange.bind(this);
         this.submitBook = this.submitBook.bind(this);
-
     }
 
     initialState = {

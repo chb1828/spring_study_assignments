@@ -11,6 +11,7 @@ import UserList from "./components/UserList";
 import LoginPage from "./components/LoginPage";
 import AuthService from "./services/auth-service";
 import Registration from "./components/Registration";
+import BookContent from "./components/BookContent";
 
 
 
@@ -47,6 +48,7 @@ class App extends Component {
                             <Route path="/users" exact component={UserList}/>
                             <Route path="/loginPage" exact component={LoginPage}/>
                             <Route path="/registration" exact component={Registration}/>
+                            <Route path="/read/:id" exact component={BookContent}/>
                         </Switch>
                     </Row>
                 </Container>

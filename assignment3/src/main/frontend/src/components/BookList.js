@@ -181,8 +181,10 @@ export default class BookList extends Component{
                                books.map((book =>
                                         <tr key={book.id}>
                                             <td>
-                                                <Image src={book.coverPhotoURL} roundedCircle width="25" height="25"/>
-                                                {book.title}
+                                                <Link to={"read/"+book.id} className="btn btn-sm" style={{ textDecoration: 'none',color:'skyblue' }}>
+                                                    <Image src={book.coverPhotoURL} roundedCircle width="25" height="25"/>
+                                                    {book.title}
+                                                </Link>
                                             </td>
                                             <td>{book.author}</td>
                                             <td>{book.isbnNumber}</td>
