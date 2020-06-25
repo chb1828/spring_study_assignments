@@ -38,8 +38,8 @@ public class ChbApplication {
                         .coverPhotoURL("https://file3.instiz.net/data/cached_img/upload/2019/06/25/10/f168bce1933bc101b3fb6725ec0f80c6.jpg")
                         .isbnNumber(1617293989L)
                         .price(2776.00+i)
-                        .language("English")
-                        .genre("Technology")
+                        .language("ENGLISH")
+                        .genre("TECHNOLOGY")
                         .build());
             }
             if(!userRepository.findById(1L).isPresent()) {

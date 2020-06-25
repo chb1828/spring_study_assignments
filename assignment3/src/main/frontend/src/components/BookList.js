@@ -46,7 +46,7 @@ export default class BookList extends Component{
     findAllBooks(currentPage) {
         currentPage -= 1;
         let sortDir = this.state.sortToggle ? "asc" : "desc";
-        axios.get("http://localhost:8080/books?pageNumber="+currentPage+"&pageSize="+this.state.booksPerPage+"&sortBy=price&sortDir="+sortDir)
+        axios.get("http://localhost:8080/books?pageNumber="+currentPage+"&pageSize="+this.state.booksPerPage+"&sortBy=price&sortDir="+sortDir+"&search="+this.state.search)
             .then(response => response.data)
             .then((data) => {
                 this.setState({
@@ -126,6 +126,10 @@ export default class BookList extends Component{
         });
     };
 
+    startSearch = () => {
+        this.findAllBooks(this.state.currentPage);
+    }
+
 
     render() {
         const {books, currentPage, totalPages, search} = this.state;  //booksPerPage = 한 페이지에 보여질 개수
@@ -146,7 +150,7 @@ export default class BookList extends Component{
                                              className={"info-border bg-dark text-white"}
                                             onChange={this.searchChange}/>
                                 <InputGroup.Append>
-                                    <Button size="sm" variant="outline-info" type="button">
+                                    <Button size="sm" variant="outline-info" type="button" onClick={this.startSearch}>
                                         <FontAwesomeIcon icon={faSearch}/>
                                     </Button>
                                     <Button size="sm" variant="outline-danger" type="button" onClick={this.cancelSearch}>
@@ -165,8 +169,8 @@ export default class BookList extends Component{
                                 <th>ISBN Number</th>
                                 <th onClick={this.sortData}>Price <div className={this.state.sortToggle ? "arrow arrow-down" : "arrow arrow-up"}></div></th>
                                 <th>Language</th>
-                                <th>Actions</th>
                                 <th>Genre</th>
+                                <th>Actions</th>
                             </tr>
                             </thead>
                             <tbody>

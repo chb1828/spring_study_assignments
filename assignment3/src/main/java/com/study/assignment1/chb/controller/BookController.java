@@ -29,9 +29,18 @@ public class BookController {
     public Page<Book> findAll(@RequestParam(value = "pageNumber") int pageNumber,
                               @RequestParam(value = "pageSize") int pageSize,
                               @RequestParam(value = "sortDir") String sortDir,
-                              @RequestParam(value = "sortBy") String sortBy) {
-        return customBookRepository.getList(PageRequest.of(pageNumber,pageSize
-                ,sortDir.equalsIgnoreCase("asc")? Sort.by(sortBy).ascending() : Sort.by(sortBy).descending()));
+                              @RequestParam(value = "sortBy") String sortBy,
+                              @RequestParam(value = "search",required = false) String search) {
+
+        Page<Book> books;
+        if(search == null) {
+            books = customBookRepository.getList(PageRequest.of(pageNumber,pageSize
+                    ,sortDir.equalsIgnoreCase("asc")? Sort.by(sortBy).ascending() : Sort.by(sortBy).descending()));
+        }else {
+            books = customBookRepository.getList(search,PageRequest.of(pageNumber,pageSize
+                    ,sortDir.equalsIgnoreCase("asc")? Sort.by(sortBy).ascending() : Sort.by(sortBy).descending()));
+        }
+        return books;
     }
 
     @GetMapping("{id}")

@@ -79,7 +79,8 @@ export default class Book extends Component {
                         coverPhotoURL: response.data.coverPhotoURL,
                         isbnNumber: response.data.isbnNumber,
                         price: response.data.price,
-                        language: response.data.language
+                        language: response.data.language,
+                        genre: response.data.genre
                     });
                 }
             }).catch((error) => {

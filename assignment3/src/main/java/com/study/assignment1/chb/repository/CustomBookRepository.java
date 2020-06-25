@@ -15,4 +15,7 @@ public class CustomBookRepository {
     public Page<Book> getList(Pageable pageable) {
        return bookRepository.findAll(pageable);
     }
+    public Page<Book> getList(String title,Pageable pageable) {
+        return bookRepository.findAllByTitleContaining(title,pageable);
+    }
 }

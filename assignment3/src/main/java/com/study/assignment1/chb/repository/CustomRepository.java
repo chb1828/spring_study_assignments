@@ -6,4 +6,5 @@ import org.springframework.data.domain.Pageable;
 public interface CustomRepository<T> {
 
     Page<T> getList(Pageable pageable);
+    Page<T> getList(String title,Pageable pageable);
 }
