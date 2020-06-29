@@ -17,7 +17,7 @@ import javax.persistence.Id;
 import java.util.Arrays;
 import java.util.Collection;
 
-@Entity
+@Entity(name = "Users")
 @Data
 @AllArgsConstructor
 @NoArgsConstructor

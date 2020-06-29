@@ -28,7 +28,7 @@ public class ChbApplication {
         SpringApplication.run(ChbApplication.class, args);
     }
 
-    @Bean
+/*    @Bean
     InitializingBean sendDatabase() {
         return () -> {
             for(int i=1; i<=500; i++) {
@@ -51,5 +51,5 @@ public class ChbApplication {
                         .build());
             }
         };
-    }
+    }*/
 }
