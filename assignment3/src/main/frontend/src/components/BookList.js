@@ -127,8 +127,8 @@ export default class BookList extends Component{
     };
 
     startSearch = () => {
-        this.findAllBooks(this.state.currentPage);
-    }
+        this.findAllBooks(1);
+    };
 
 
     render() {
