@@ -1,11 +1,11 @@
 package com.study.assignment1.chb.entity;
 
+import com.study.assignment1.chb.entity.audit.DateAudit;
 import com.sun.istack.NotNull;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.hibernate.annotations.ColumnDefault;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -22,7 +22,7 @@ import java.util.Collection;
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-public class User implements UserDetails {
+public class User extends DateAudit implements UserDetails {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)

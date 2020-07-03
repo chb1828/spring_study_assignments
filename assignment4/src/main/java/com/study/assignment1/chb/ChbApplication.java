@@ -1,18 +1,15 @@
 package com.study.assignment1.chb;
 
-import com.study.assignment1.chb.entity.Book;
-import com.study.assignment1.chb.entity.Classes;
-import com.study.assignment1.chb.entity.User;
 import com.study.assignment1.chb.repository.BookRepository;
 import com.study.assignment1.chb.repository.UserRepository;
-import org.springframework.beans.factory.InitializingBean;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.context.annotation.Bean;
+import org.springframework.data.jpa.repository.config.EnableJpaAuditing;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
 @SpringBootApplication
+@EnableJpaAuditing
 public class ChbApplication {
 
     @Autowired
